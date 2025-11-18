@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHANTOM CORE LEGENDARY | Sensitivity + Panel 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@600;700;900&family=Rajdhani:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    :root {
+      --fire: #ff0040;
+      --cyan: #00ffff;
+      --purple: #d700ff;
+      --bg: #000814;
+      --card: rgba(20, 10, 50, 0.88);
+      --gold: #ffd700;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg);
+      color: white;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 8, 20, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 9999;
+      padding: 0.8rem 0;
+      border-bottom: 5px solid var(--fire);
+      box-shadow: 0 8px 32px rgba(255, 0, 64, 0.3);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.7rem 1.3rem;
+      border: 2px solid var(--fire);
+      border-radius: 50px;
+      font-weight: bold;
+      transition: 0.4s;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      background: var(--fire);
+      color: black;
+      transform: translateY(-3px);
+    }
+
+    .logo {
+      font-size: 5.8rem;
+      font-weight: 900;
+      text-align: center;
+      margin: 3.5rem 0 1rem;
+      background: linear-gradient(45deg, var(--fire), var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 90px var(--cyan);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 70px var(--cyan);
+      }
+
+      to {
+        text-shadow: 0 0 130px var(--fire);
+      }
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .tagline {
+      font-size: 2.1rem;
+      color: var(--cyan);
+      margin: 2rem 0;
+      text-shadow: 0 0 25px var(--cyan);
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.2rem;
+      margin: 5rem 0;
+    }
+
+    .package-card {
+      background: var(--card);
+      border: 3px solid var(--fire);
+      border-radius: 28px;
+      padding: 2.5rem 2rem;
+      transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(20px);
+      cursor: pointer;
+    }
+
+    .package-card:hover {
+      transform: translateY(-30px) scale(1.08);
+      box-shadow: 0 0 120px rgba(255, 0, 64, 0.9);
+      border-color: var(--cyan);
+    }
+
+    .price {
+      font-size: 4.8rem;
+      color: var(--gold);
+      font-weight: 900;
+      text-shadow: 0 0 50px gold;
+      margin: 1rem 0;
+    }
+
+    .benefits {
+      text-align: left;
+      margin: 1.8rem 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .benefits li {
+      margin: 0.8rem 0;
+      color: #00ff88;
+      list-style: none;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .benefits li::before {
+      content: '✅';
+      position: absolute;
+      left: 0;
+      font-size: 1.3rem;
+    }
+
+    .buy-btn {
+      background: linear-gradient(45deg, var(--fire), var(--cyan));
+      color: black;
+      padding: 1.3rem 3rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s;
+      margin-top: 1.5rem;
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 70px var(--cyan);
+    }
+
+    #payment-form {
+      background: rgba(20, 10, 50, 0.95);
+      padding: 4rem 2rem;
+      border-radius: 35px;
+      max-width: 750px;
+      margin: 5rem auto;
+      border: 5px solid var(--cyan);
+      backdrop-filter: blur(20px);
+    }
+
+    .pay-number {
+      background: var(--fire);
+      color: black;
+      padding: 1.2rem 2.5rem;
+      border-radius: 20px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin: 1.5rem 0;
+      display: inline-block;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 1.3rem;
+      margin: 1rem 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--cyan);
+      border-radius: 20px;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1.5rem;
+      background: linear-gradient(45deg, var(--fire), var(--cyan));
+      color: black;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.7rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 50px var(--cyan);
+    }
+
+    footer {
+      text-align: center;
+      padding: 5rem 1rem;
+      background: rgba(0, 0, 0, 0.95);
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 3.8rem;
+      }
+
+      .price {
+        font-size: 3.5rem;
+      }
+
+      .tagline {
+        font-size: 1.7rem;
+      }
+
+      .benefits {
+        font-size: 0.95rem;
+      }
+
+      .buy-btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.3rem;
+      }
+
+      nav a {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+
+  <nav>
+    <ul>
+      <li><a href="#home">হোম</a></li>
+      <li><a href="#packages">প্যাকেজ</a></li>
+      <li><a href="#payment-form">পেমেন্ট</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" id="home">
+    <h1 class="logo">PHANTOM CORE LEGENDARY</h1>
+    <p class="tagline">একবার কিনো – সারাজীবন লিজেন্ড হয়ে খেল!</p>
+  </div>
+
+  <div class="container" id="packages">
+    <div class="packages">
+
+      <div class="package-card" onclick="scrollToPayment('বেসিক ২০০')">
+        <h2 style="color:var(--cyan);">বেসিক প্যাক</h2>
+        <p class="price">৳২০০</p>
+        <ul class="benefits">
+          <li>70%+ হেডশট রেট – প্রো লেভেল সেন্সিটিভিটি</li>
+          <li>জিপ্সি ৪০০% + টাচ <১৫ms – লেজার ড্র্যাগ</li>
+          <li>৯০ FPS লক + রেকয়েল কন্ট্রোল</li>
+          <li>ভিডিও গাইড + ৩ দিন সাপোর্ট</li>
+          <li>১০০% ব্যান সেফ</li>
+        </ul>
+        <button class="buy-btn">কিনুন</button>
+      </div>
+
+      <div class="package-card" onclick="scrollToPayment('প্রিমিয়াম ৪০০')">
+        <h2 style="color:var(--purple);">প্রিমিয়াম প্যাক</h2>
+        <p class="price">৳৪০০</p>
+        <ul class="benefits">
+          <li>৮০%+ হেডশট – কাস্টম ৪/৫ ফিঙ্গার HUD</li>
+          <li>পিং লক ৫-১০ms + ১১০ FPS</li>
+          <li>জাঙ্ক ক্লিন + RAM বুস্ট</li>
+          <li>১৫ দিন WhatsApp সাপোর্ট</li>
+          <li>ডেইলি টিপস + প্রোগ্রেস ট্র্যাকার</li>
+        </ul>
+        <button class="buy-btn">কিনুন</button>
+      </div>
+
+      <div class="package-card" onclick="scrollToPayment('VIP ৫০০')">
+        <h2 style="color:#00ff88;">VIP প্যাক</h2>
+        <p class="price">৳৫০০</p>
+        <ul class="benefits">
+          <li>৯০%+ হেডশট + লাইফটাইম আপডেট</li>
+          <li>১২০ FPS লকড + গাইরো ৫০০%</li>
+          <li>প্রাইভেট গ্রুপ + ডেইলি টিপস</li>
+          <li>৭ দিন না হলে রিফান্ড</li>
+        </ul>
+        <button class="buy-btn">কিনুন</button>
+      </div>
+
+      <div class="package-card" onclick="scrollToPayment('এলিট ৭৫০')">
+        <h2 style="color:#ffc107;">এলিট প্যাক</h2>
+        <p class="price">৳৭৫০</p>
+        <ul class="benefits">
+          <li>৯৫% হেডশট – পার্সোনালাইজড সেন্স</li>
+          <li>১-টু-১ কল সাপোর্ট + কাস্টম HUD</li>
+          <li>রুট ছাড়া সেফ টুইকস</li>
+        </ul>
+        <button class="buy-btn">কিনুন</button>
+      </div>
+
+      <div class="package-card" onclick="scrollToPayment('গড মোড ১৫০০')">
+        <h2 style="color:#ff0000;">গড মোড প্যাক</h2>
+        <p class="price">৳১৫০০</p>
+        <ul class="benefits">
+          <li>৯৮% হেডশট – রুট + কার্নেল টুইক</li>
+          <li>কাস্টম ROM + GFX টুল</li>
+          <li>প্রতিদিন প্রাইভেট ট্রেনিং</li>
+        </ul>
+        <button class="buy-btn">কিনুন</button>
+      </div>
+
+      <div class="package-card" onclick="scrollToPayment('আলটিমেট ১০০০')">
+        <h2 style="color:gold;">আলটিমেট প্যাক</h2>
+        <p class="price">৳১০০০</p>
+        <ul class="benefits">
+          <li>৯৫%+ হেডশট + ১২০ FPS</li>
+          <li>৭ দিন না হলে ফুল রিফান্ড</li>
+          <li>লাইফটাইম সবকিছু</li>
+        </ul>
+        <button class="buy-btn">কিনুন</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- পেমেন্ট ফর্ম (সবকিছু আছে) -->
+  <div id="payment-form">
+    <h2 style="color:var(--cyan); font-size:3.5rem;">পেমেন্ট করো – ফাইল নাও!</h2>
+    <p style="font-size:1.7rem; color:#00ff88;">bKash • Nagad • Rocket</p>
+    <div class="pay-number">01628-050812</div>
+
+    <form onsubmit="sendToWhatsApp(event)">
+      <input type="text" id="package-name" class="form-input" placeholder="প্যাকেজ নাম (অটো আসবে)" readonly>
+
+      <input type="text" class="form-input" placeholder="তোমার Free Fire UID / নাম" required>
+
+      <input type="tel" class="form-input" placeholder="যে নাম্বার থেকে টাকা পাঠিয়েছ" required>
+
+      <input type="number" class="form-input" placeholder="কত টাকা পাঠিয়েছ (যেমন: ৫০০)" required>
+
+      <input type="text" class="form-input" placeholder="ট্রানজেকশন ID" required>
+
+      <input type="file" class="form-input" accept="image/*" required>
+
+      <button type="submit" class="submit-btn">
+        <i class="fab fa-whatsapp"></i> সাবমিট করো – WhatsApp-এ পাঠান
+      </button>
+    </form>
+  </div>
+
+  <footer>
+    <h2 class="logo" style="font-size:4.5rem;">PHANTOM CORE LEGENDARY</h2>
+    <p style="color:var(--cyan); font-size:1.7rem;">Developed by Ahsanhabib (Ripon)</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", { particles: { number: { value: 160 }, color: { value: ["#ff0040", "#00ffff", "#d700ff", "#ffd700"] }, size: { value: 5 }, move: { speed: 7 } }, interactivity: { events: { onhover: { enable: true, mode: "repulse" } } } });
+
+    function scrollToPayment(pkg) {
+      document.getElementById('package-name').value = pkg;
+      document.getElementById('payment-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const pkg = document.getElementById('package-name').value || "প্যাকেজ নির্বাচন করুন";
+      const nameUid = e.target[1].value;
+      const sender = e.target[2].value;
+      const amount = e.target[3].value;
+      const txid = e.target[4].value;
+
+      const message = `🔥 নতুন অর্ডার – PHANTOM CORE LEGENDARY 🔥
+
+📦 প্যাকেজ: ${pkg}
+🎮 নাম/UID: ${nameUid}
+📱 সেন্ডার নাম্বার: ${sender}
+💰 এমাউন্ট: ৳${amount}
+🆔 TxID: ${txid}
+
+✅ স্ক্রিনশট পাঠানো হয়েছে!
+ভাইয়া দ্রুত ফাইল পাঠান 🥺`;
+
+      window.open(`https://wa.me/8801628050812?text=${encodeURIComponent(message)}`, '_blank');
+    }
+  </script>
+</body>
+
+</html>
